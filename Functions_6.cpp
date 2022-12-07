@@ -6,6 +6,11 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 *******************************************************************************/
 
+// Define a C++ function EXISTS that takes two integer numbers, the first is a big number and the second
+// is one single digit. The function returns true if the single digit does exist in the big number and false
+// otherwise.
+// Write a recursive version of the function Exists
+
 #include <iostream>
 #include <cmath>
 #include <vector>

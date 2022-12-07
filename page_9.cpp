@@ -1,49 +1,36 @@
-#include<bits/stdc++.h>
+#include <climits>
+#include <iostream>
+
 using namespace std;
 
-int main(){
-    // Defining dimensions of the original matrix.
-    int N=4, M=3;
 
-    // Declaring it & Initializing values. 
-    int mat[N][M]={
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9},
-        {10, 11, 12}
-    };
-    
-
-    // Printing the original Matrix.
-    cout<<"Original Matrix is -\n";
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < M; j++){
-            cout<<mat[i][j]<<"\t";
-        }
-        cout<<endl;
-    }
-
-
-    // Declaring transpose matrix with inverted 
-    // dimensions i.e. M * N
-    int T_mat[M][N];
-
-    // Assigning values accordingly. 
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < M; j++){
-            T_mat[j][i] = mat[i][j];
-        }
-    }
-
-    // Printing the transposed Matrix.
-    cout<<"\nTransposed Matrix is -\n";
-    for(int i = 0; i < M; i++){
-        for(int j = 0; j < N; j++){
-            cout<<T_mat[i][j]<<"\t";
-        }
-        cout<<endl;
-    }
-
-    return 0;
+int main() {
+   //(page 7) Write a C++ program that finds the common elements between two arrays of
+   //variable sizes. Your program should ask the user to input the sizes of the
+   //two arrays and the elements in each of them. The program then should
+   //display the common elements that appear in both arrays.
+   int size_1;
+   int size_2;
+   cin >> size_1;
+   cin >> size_2;
+   int *arr_1 = new int[size_1];
+   int *arr_2 = new int[size_2];
+   for (int i = 0; i < size_1; ++i) {
+     cin >> arr_1[i];
+   }
+   for (int i = 0; i < size_2; ++i) {
+     cin >> arr_2[i];
+   }
+   int loop_size_1 = min(size_1, size_2);
+   int loop_size_2 = max(size_1, size_2);
+  
+   for (int i = 0; i < loop_size_1; ++i) {
+     for (int j = 0; j < loop_size_2; ++j) {
+       if (arr_1[i] == arr_2[j]) {
+         cout << arr_1[i] << endl;
+       }
+     }
+   }
+//   ==============================================
+  
 }
-

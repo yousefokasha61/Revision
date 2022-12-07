@@ -1,16 +1,22 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-int power(int base, int exponent){
-  // (page 10) Write a recursive function int power(int num, int p) that calculates the value of (nump). 
-  if(exponent == 0){
-    return 1;
-  }
-  return base * power(base, exponent - 1);
+ 
+// Function to find all possible handshakes
+int handshake(int n)
+{
+ 
+    // When n becomes 0 that means all the persons have done
+    // handshake with other
+    if (n == 0)
+        return 0;
+    else
+        return (n - 1) + handshake(n - 1);
 }
-
-int main(){
-    
+ 
+// Driver code
+int main()
+{
+    int n = 9;
+    cout << " " << handshake(n);
     return 0;
 }
-

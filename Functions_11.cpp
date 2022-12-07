@@ -11,6 +11,12 @@ Write your code in this editor and press "Run" button to compile and execute it.
 #include <vector>
 #include <bits/stdc++.h>
 
+// Define modular C++ program that performs the following:
+// a. Takes and stores names and GPAs of n students in an array. The number of students n is a user input
+// between 10 and 50. The input of names is done by a function Input.
+// b. Call a function Sort to reaarange the list in an ascending alphabetic order according to the name of the
+// student. Define the necessary sawpping functions to swap both the names and GPAs.
+
 using namespace std;
 
 struct Student{
