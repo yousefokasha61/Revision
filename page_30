@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+struct Item{
+  double unit_price;
+  int quantity;
+};
+
+
+int main() {
+  Item items[5];
+  double total = 0.0;
+  int sum = 0;
+  for(int i = 0; i < 5; ++i){
+    cin >> items[i].quantity;
+    while(items[i].quantity < 0 || items[i].quantity > 1000){
+      cout << "Enter a number within the range: ";
+      cin >> items[i].quantity;
+    }
+    cin >> items[i].unit_price;
+    while(items[i].unit_price < 0 || items[i].unit_price > 1000){
+      cout << "Enter a number within the range: ";
+      cin >> items[i].unit_price;
+    }
+    total += (items[i].quantity * items[i].unit_price);
+    sum += items[i].quantity;
+  }
+  cout << total << endl;
+  cout << sum / 5.0 << endl;
+}
