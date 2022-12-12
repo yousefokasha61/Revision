@@ -23,69 +23,65 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <bits/stdc++.h>
+#include <algorithm>
 
 using namespace std;
 
-vector<string>names;
-vector<int>scores;
+struct Student{
+  string name;
+  int score;
+};
+
+vector<Student>students;
 
 void input(){
-  fstream file;
-  file.open("score.dat", ios::in);
-  if(!file){
-    cout <<" Problem creating a file" << endl;
+  ifstream ifile;
+  ifile.open("score.dat");
+  if(ifile.fail()){
+    cout << "ERROR" << endl;
+    return;
   }
-  else {
-    string str;
-    while(!file.eof()){
-      getline(file, str);
-      string name = str.substr(0, str.find(" "));
-      string score_str = str.substr(str.find(" ")+1, str.length());
-      int score = stoi(score_str);
-      names.push_back(name);
-      scores.push_back(score);
-      // cout << name << " " << score << endl;
-    }
-    file.close();
+  while(!ifile.eof()){
+    string name;
+    int score;
+    ifile >> name >> score;
+    Student s;
+    s.name = name;
+    s.score = score;
+    students.push_back(s);
   }
+  ifile.close();
 }
 
-void sort_file_content(){
-  sort(names.begin(), names.end(), greater<string>());
-  sort(scores.begin(), scores.end(), greater<int>());
+bool compare(Student a, Student b){
+  if (a.score > b.score){
+    return true;
+  }
+  return false;
+}
+
+void sort(){
+  sort(students.begin(), students.end(), compare);
 }
 
 void output(){
-  fstream file;
-  file.open("sortedScores.dat", ios::out);
-  for(int i = 0;i<names.size();++i){
-    file << names[i] << " " << scores[i] << endl;
+  ofstream ofile;
+  ofile.open("sortedScore.dat");
+  for(int i = 0; i < students.size(); ++i){
+    ofile << students[i].name << " " << students[i].score << "\n";
   }
+  ofile.close();
 }
 
 void display(){
-  fstream file;
-  file.open("sortedScores.dat", ios::in);
-  if(!file){
-    cout <<" Problem creating a file" << endl;
-  }
-  else {
-    string str;
-    while(!file.eof()){
-      getline(file, str);
-      cout << str << endl;
-    }
-    file.close();
+  for(int i = 0; i < students.size(); ++i){
+    cout << students[i].name << " " << students[i].score << endl;
   }
 }
 
-
 int main() {
   input();
-  sort_file_content();
+  sort();
   output();
   display();
-
-  return 0;
 }
