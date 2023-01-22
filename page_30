@@ -2,6 +2,12 @@
 
 using namespace std;
 
+// Write a C++ program that accepts sales unit price and sales quantity of various items and compute 
+// total sales amount and the average sales quantity. All input values must greater than or equal 
+// to 0 and less than or equal to 1,000, and the number of pairs o f sales unit and sales 
+// quantity does not exceed 100. If a fraction occurs in the average of the sales quantity, 
+// round the first decimal place
+
 struct Item{
   double unit_price;
   int quantity;

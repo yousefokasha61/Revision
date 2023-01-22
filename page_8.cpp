@@ -1,6 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Write a C++ function to transpose a matrix. Your function should accept two 2D arrays as parameters, 
+// one for the input and one for the output, verifies that the output array dimensions match the expected ones 
+// for transposing the input array and populate i t with the matrix transpose by converting each row in the 
+// input matrix to a column in the output matrix. The function should return either true or false based on 
+// whether the transposition is possible for the passed input and output arrays or not. 
+// 2 7 9 5 4 3 2 9 4 7 Input Matrix 5 Output Matrix 3
+
 int main(){
     // Defining dimensions of the original matrix.
     int N=4, M=3;

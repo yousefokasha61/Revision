@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+// Write a C++ function that takes a single dimensional array and finds the second largest element in the array.
 
 int secondMaximum(int arr[], int size) {
   int max = INT_MIN;
